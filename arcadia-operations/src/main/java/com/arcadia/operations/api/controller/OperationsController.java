@@ -1,6 +1,7 @@
 package com.arcadia.operations.api.controller;
 
 import com.arcadia.operations.api.dto.*;
+import com.arcadia.operations.api.service.NotificationService;
 import com.arcadia.operations.api.service.OperationsService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -11,15 +12,18 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1")
 public class OperationsController {
     private final OperationsService service;
+    private final NotificationService notificationService;
 
-    public OperationsController(OperationsService service) {
+    public OperationsController(OperationsService service, NotificationService notificationService) {
         this.service = service;
+        this.notificationService = notificationService;
     }
 
     @PostMapping("/vehicles/{vin}/commands")
     public ResponseEntity<CommandAcceptedResponse> initiateCommand(@PathVariable String vin,
                                                                    @RequestHeader(value="X-Request-Id", required=false) String requestId,
                                                                    @Valid @RequestBody CommandRequest request) {
+        notificationService.sendNotification(request);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.submitCommand(vin, requestId, request));
     }
 
