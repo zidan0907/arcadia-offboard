@@ -1,0 +1,4 @@
+{
+  "title": "Car Door Unlocked!",
+  "body": "Door(s) of car {{vehicle}} unlocked ({{timestamp}}) as requested by {{requestedBy}}."
+}
