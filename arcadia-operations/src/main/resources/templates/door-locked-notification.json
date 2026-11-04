@@ -1,0 +1,4 @@
+{
+  "title": "Car Door Locked!",
+  "body": "Door(s) of car {{vehicle}} locked ({{timestamp}}) as requested by {{requestedBy}}."
+}
