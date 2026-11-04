@@ -1,4 +1,4 @@
 package com.arcadia.operations.api.dto;
 
-public record PushNotificationTemplate() {
+public record PushNotificationTemplate(String title, String body) {
 }
