@@ -34,5 +34,9 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.arcadia</groupId>
+            <artifactId>arcadia-operations</artifactId>
+        </dependency>
     </dependencies>
 </project>
